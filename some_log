@@ -1,0 +1,71 @@
+Insatlled Nodejs this way:
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+Steps to create project:
+npm init
+npm install react react-dom --save   [save means production dependency]
+
+npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 --save-dev
+
+webpack - to bundle packages
+webpack-dev-server  - to create simple server
+babel-loader - to convrs ES6 code to ES5 code.
+three other packges define "which ES6 command I will use" kinda thing:
+babel-preset-es2015 - logic which transpiler (converter, babel in this case) needs, es2015 is ES6
+babel-preset-react - react specific logic babel needs
+babel-preset-stage-2 - to have extra features like destructuring.
+--save-dev - to install all these dependencies as development dependencies.
+
+
+Regarding package.js:
+
+{
+  "name": "reactjs-basics",
+  "version": "0.0.0",
+  "description": "Basic ReactJS",
+  "main": "index.js",
+  "scripts": {
+//with this I only have to run in the terminal: npm start
+    "start": "npm run build",
+    //webpack -d mean in dev mode; with all these files the webpack-dev-server will be launched.
+    //We confiuring webpack-dev-server with --content-base src/, which means that app content is in src/
+    //and this important for development.
+    //--inline - how server will run or display everething, --hot is for hot reloading.
+    //we can put --port as well. Deafult port is  8080
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot",
+    //in prod mode source files will be removed and some other files as well
+    "build:prod": "webpack -p && cp src/index.html dist/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ToshkaDev/ReactJS.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Vadim Gumerov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ToshkaDev/ReactJS/issues"
+  },
+  "dependencies": {
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "~2.7.1",
+    "webpack": "~3.5.5",
+    "babel-loader": "~7.1.2",
+    "babel-preset-es2015": "~6.24.1",
+    "babel-preset-react": "~6.24.1",
+    "babel-preset-stage-2": "~6.24.1"
+  }
+}
+
+
+
+
+
+
+
