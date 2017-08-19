@@ -21,6 +21,7 @@
     "url": "https://github.com/ToshkaDev/ReactJS/issues"
   },
   "dependencies": {
+    "eslint": "^4.5.0",
     "react": "~15.6.1",
     "react-dom": "~15.6.1"
   },
