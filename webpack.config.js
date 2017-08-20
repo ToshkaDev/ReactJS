@@ -36,6 +36,6 @@ var config = {
     }
 };
 
-//config object will be exported as a nodejs module. Webpack will pull this module (requre("config")) 
+//config object will be exported as a nodejs module. Webpack will pull this module
 //and will read this configuration
 module.exports = config;
