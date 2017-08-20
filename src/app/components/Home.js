@@ -8,12 +8,14 @@ import React from "react";
 //1) But this still will not be rendered. It will be rendered when the 'state' will change.
 //2) So, here we are updating age using this.state.age expression.
 export class Home extends React.Component {
+
     constructor(props) {
         super();
         this.state = {
             //or age: props.age; by initialAge we emphasize that this is an inirial value
             age: props.initialAge,
-            status: 0
+            status: 0,
+            homeLink: "Changed Link"
         };
         setTimeout(() => {
             this.setState({
@@ -29,6 +31,10 @@ export class Home extends React.Component {
         });
     }
 
+    onChangeLink() {
+        this.props.changeLink(this.state.homeLink);
+    }
+
     render() {
         return (
             <div>
@@ -40,6 +46,9 @@ export class Home extends React.Component {
                 <button onClick={() => this.makeOlder()} className="btn btn-primary"> Make me older </button>
                 <hr/>
                 <button onClick={this.props.greet} className="btn btn-primary"> Greet </button>
+                <hr/>
+                <button onClick={this.onChangeLink.bind(this)} className="btn btn-primary"> Change Link </button>
+
             </div>
 
         );
@@ -49,5 +58,6 @@ export class Home extends React.Component {
 Home.propTypes = {
     name: React.PropTypes.string,
     initialAge: React.PropTypes.number,
-    greet: React.PropTypes.func
+    greet: React.PropTypes.func,
+    changeLink: React.PropTypes.func
 }
