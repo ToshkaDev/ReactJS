@@ -14,7 +14,12 @@ export class Home extends React.Component {
             //or age: props.age; by initialAge we emphasize that this is an inirial value
             age: props.initialAge,
             status: 0
-        }
+        };
+        setTimeout(() => {
+            this.setState({
+                status: 1
+            });
+        }, 3000);
     }
 
     makeOlder() {
