@@ -3,7 +3,7 @@ import React from "react";
 import { browserHistory } from "react-router";
 
 //in {this.props.params.id} React is sends everything in props and in params we have parameters.
-//'id' is  the name I choose in index.js: <Route path={"user/:id"} component={User}/> 
+//'id' is  the name I choose in index.js: <Route path={"user/:id"} component={User}/> c
 export class User extends React.Component {
     onNavigateHome() {
         browserHistory.push("/home");

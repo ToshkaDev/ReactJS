@@ -8,6 +8,9 @@ npm install react react-dom --save   [save means production dependency]
 
 npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 --save-dev
 
+npm install --save react-router
+npm install --save react-router-dom
+
 webpack - to bundle packages
 webpack-dev-server  - to create simple server
 babel-loader - to convrs ES6 code to ES5 code.
@@ -67,5 +70,5 @@ Regarding package.js:
 
 
 
-
+"webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback"
 
